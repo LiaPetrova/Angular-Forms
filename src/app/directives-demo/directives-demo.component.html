@@ -1,0 +1,40 @@
+<!-- <div>
+<p [ngStyle]="{'background-color': 'pink', 'color': 'aquamarine'}" [ngClass]="{'big-font': bigFont}">directives-demo works!</p>
+<button [ngStyle]="{'border-color': 'blue', 'background-color': 'orange'}" (click)="bigFont = !bigFont">Change font size!</button>
+</div> -->
+
+<div>
+    <p [ngStyle]="textStyle" [ngClass]="{'big-font': bigFont}">directives-demo works!</p>
+    <button (click)="textStyle.color='yellow'; textStyle['background-color']='orange'; buttonStyle['border-color']='green'; buttonStyle['background-color']='violet'">Change style!</button>
+    <button [ngStyle]="buttonStyle" (click)="bigFont = !bigFont">Change font size!</button>
+</div>
+
+<div>
+    <p *ngIf="showMainText; else otherText">
+        <span>
+            This is main text!
+        </span>
+    </p>
+
+    <ng-template [ngIf]="showMainText" [ngIfElse]="otherText">
+        <p>
+            <span>
+                This is main text! (without syntactic sugar)
+            </span>
+        </p>
+    </ng-template>
+    
+
+    <ng-template #otherText let-color="color">
+        <p>
+            <span>
+                Other text! {{ color }}
+            </span>
+        </p>
+    </ng-template>
+
+    <button (click)="showMainText = !showMainText">Toggle main and ther text!</button>
+</div>
+
+<ng-container [ngTemplateOutlet]="otherText" [ngTemplateOutletContext]="{'color': 'pink'}">
+</ng-container>

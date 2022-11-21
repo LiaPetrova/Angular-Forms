@@ -1,0 +1,19 @@
+<p appHighlight  [color]="backgroundColor" (colorChange)="handleColor($event)" #myParagraph="AppHighlightExpt">highlight-demo works!</p>
+
+<div>
+    <button (click)="backgroundColor = 'blue'">
+        Make blue!
+    </button>
+</div>
+
+<div>
+    <button (click)="backgroundColor = 'purple'">
+        Make purple!
+    </button>
+</div>
+
+<div>
+    <button (click)="backgroundColor = 'aquamarine'">
+        Make aquamarine!
+    </button>
+</div>
